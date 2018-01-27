@@ -57,7 +57,7 @@ public class Station : Vertex {
 
 }
 
-public class GameField : MonoBehaviour {
+public class GameField {
 
     public List<Station> Points;
     public Vector3 Origin;
@@ -102,11 +102,11 @@ public class GameField : MonoBehaviour {
         }
     }
 
-    void Update()
+    public void Update(float dt)
     {
         foreach(var point in Points)
         {
-            point.Decrease(GameBalanceConst.GlobalCensorAbsorption * Time.deltaTime);
+            point.Decrease(GameBalanceConst.GlobalCensorAbsorption * dt);
         }
     }
 }

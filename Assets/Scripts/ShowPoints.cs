@@ -35,9 +35,13 @@ public class ShowPoints : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        //foreach(var station in _stations)
-        //{
-        //    station.transform.position = _data.
-        //}
+        int index = 0;
+        foreach(var station in _stations)
+        {
+            Station stationData = _data.Points[index];
+            station.transform.localScale = Vector3.one * (1.0f + stationData.Radiation / 10.0f);
+            index++;
+        }
+
 	}
 }

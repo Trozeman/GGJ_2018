@@ -8,12 +8,14 @@ public class GameFieldManager : MonoBehaviour
     public GameObject Selection;
     public Vector3 Size;
     private GameField _gameField;
+    private int _selectedPointIndex;
 
 	// Use this for initialization
 	void Awake () {
         _gameField = new GameField();
         _gameField.Init(Size);
         _gameField.GenerateField(GameBalanceConst.InitalPointsCount);
+        _selectedPointIndex = -1;
 	}
 
     void Start()
@@ -33,6 +35,8 @@ public class GameFieldManager : MonoBehaviour
 #endif
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
+            _selectedPointIndex = -1;
+            int curentIndex = 0;
             foreach(var station in _gameField.Points)
             {
                 float curDistance = Vector3.Distance(mousePos, station.GetPosition());
@@ -40,7 +44,9 @@ public class GameFieldManager : MonoBehaviour
                 {
                     stationClicked = station;
                     lastMinPos = curDistance;
+                    _selectedPointIndex = curentIndex;
                 }
+                curentIndex++;
             }
         }
 
@@ -48,7 +54,9 @@ public class GameFieldManager : MonoBehaviour
         {
             Selection.transform.position = stationClicked.GetPosition();
             Selection.SetActive(true);
-        }		
+        }
+
+        _gameField.Update(Time.deltaTime);
 	}
 
     public GameField GetGameField() {
@@ -57,6 +65,9 @@ public class GameFieldManager : MonoBehaviour
 
     public void OnTramsitButtonClicked()
     {
-        
+        if (_selectedPointIndex >= 0)
+        {
+            _gameField.Points[_selectedPointIndex].Increase(1, GameBalanceConst.Intensity);
+        }
     }
 }
