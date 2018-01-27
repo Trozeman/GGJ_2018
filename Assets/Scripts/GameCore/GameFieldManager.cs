@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 
 public class GameFieldManager : MonoBehaviour
 {
+    public SpreadNewsPerson[] SpreadNewsPersons;
     public GameObject Selection;
     public Vector3 Size;
     private GameField _gameField;
@@ -16,6 +17,11 @@ public class GameFieldManager : MonoBehaviour
         _gameField.Init(Size);
         _gameField.GenerateField(GameBalanceConst.InitalPointsCount);
         _selectedPointIndex = -1;
+
+        foreach(var person in SpreadNewsPersons)
+        {
+            person.gameObject.SetActive(false);
+        }
 	}
 
     void Start()
@@ -67,7 +73,10 @@ public class GameFieldManager : MonoBehaviour
     {
         if (_selectedPointIndex >= 0)
         {
-            _gameField.Points[_selectedPointIndex].Increase(1, GameBalanceConst.Intensity);
+            Station station = _gameField.Points[_selectedPointIndex];
+            station.Increase(1, GameBalanceConst.Intensity, 0.0f);
+            SpreadNewsPerson person = SpreadNewsPersons[Random.Range(0, SpreadNewsPersons.Length)];
+            person.ShowSpreadingNews(station.GetPosition());
         }
     }
 }

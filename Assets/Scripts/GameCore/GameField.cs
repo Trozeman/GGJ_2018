@@ -9,26 +9,21 @@ public class Station : Vertex {
     public int Owner;
     public float Radiation;
 
+    public float increase_value;
+    public float increase_timer;
+
     public Station(float x, float y) : base(x,y)
     {
         Neighbours = new List<Station>();
+        increase_timer = -1.0f;
+        increase_value = 0.0f;
     }
 
     // add fake news to this point
-    public void Increase(int player, float intensity)
+    public void Increase(int player, float intensity, float timer)
     {
-        Radiation += intensity;
-        intensity -= GameBalanceConst.RadiationAbsorption;
-        if (intensity > 0)
-        {
-            int curWidth = GameBalanceConst.SpreadSize;
-            foreach( var nearPoint in Neighbours)
-            {
-                nearPoint.Increase(player, intensity);
-                curWidth -= 1;
-                if (curWidth == 0) break;
-            }
-        }
+        increase_timer = timer;
+        increase_value = intensity;
     }
 
     public Vector3 GetPosition()
@@ -53,6 +48,33 @@ public class Station : Vertex {
     {
         Radiation = 0;
         Owner = 0;
+    }
+
+    public void Update(float dt)
+    {
+        Decrease(GameBalanceConst.GlobalCensorAbsorption * dt);
+
+        if (increase_timer>=0.0f)
+        {
+            increase_timer -= dt;
+            if (increase_timer <= 0.0f)
+            {
+                increase_timer = -1;
+                Radiation += increase_value;
+                increase_value -= GameBalanceConst.RadiationAbsorption;
+                if (increase_value > 0)
+                {
+                    int curWidth = GameBalanceConst.SpreadSize;
+                    foreach (var nearPoint in Neighbours)
+                    {
+                        nearPoint.Increase(1, increase_value, 0.1f);
+                        curWidth -= 1;
+                        if (curWidth == 0) break;
+                    }
+                }
+            }
+        }
+
     }
 
 }
@@ -105,8 +127,8 @@ public class GameField {
     public void Update(float dt)
     {
         foreach(var point in Points)
-        {
-            point.Decrease(GameBalanceConst.GlobalCensorAbsorption * dt);
+        {           
+            point.Update(dt);
         }
     }
 }
