@@ -1,8 +1,9 @@
+﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{6568C254-4261-CF71-CB6C-49C18443956C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GGJ_2018", "Assembly-CSharp.csproj", "{6568C254-4261-CF71-CB6C-49C18443956C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor-firstpass", "Assembly-CSharp-Editor-firstpass.csproj", "{C0EC21E2-BD6D-4E98-E168-53C593162616}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GGJ_2018", "Assembly-CSharp-Editor-firstpass.csproj", "{C0EC21E2-BD6D-4E98-E168-53C593162616}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
