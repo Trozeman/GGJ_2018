@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 114148131815180034}
   - component: {fileID: 114302385091643000}
   m_Layer: 5
-  m_Name: GameUI
+  m_Name: GameUIPrefb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
