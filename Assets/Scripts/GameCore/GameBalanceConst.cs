@@ -6,6 +6,7 @@ public class GameBalanceConst
 {
     // game parameters
     public static float Intensity = 10.0f;
+    public static float IntensityToRadiusRatio = 0.1f;
     //public static int SpreadDepth = 1;
     public static int SpreadSize = 3;
     public static float RadiationAbsorption = 2;

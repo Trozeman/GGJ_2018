@@ -39,8 +39,10 @@ public class ShowPoints : MonoBehaviour
         foreach(var station in _stations)
         {
             Station stationData = _data.Points[index];
-            station.transform.localScale = Vector3.one * (1.0f + stationData.Radiation / 10.0f);
-            station.PointSprite.color = new Color(Mathf.Min(1.0f, stationData.Radiation * 0.01f) , 1/(stationData.Radiation + 0.1f) , 0);
+            station.transform.localScale = Vector3.one * (1.0f + stationData.Radiation * GameBalanceConst.IntensityToRadiusRatio);
+
+            Color color = Color.Lerp(Color.yellow, Color.red, Mathf.Min(1.0f, stationData.Radiation * 0.01f));
+            station.PointSprite.color = color;
             index++;
         }
 
