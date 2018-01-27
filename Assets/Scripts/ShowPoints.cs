@@ -44,7 +44,7 @@ public class ShowPoints : MonoBehaviour
             Color color = Color.Lerp(Color.yellow, Color.red, Mathf.Min(1.0f, stationData.Radiation * 0.01f));
             if (stationData.Radiation == 0.0f)
             {
-                color = Color.green;
+                color = new Color(0, 0.9f, 1.0f);
             }
             station.PointSprite.color = color;
             index++;
