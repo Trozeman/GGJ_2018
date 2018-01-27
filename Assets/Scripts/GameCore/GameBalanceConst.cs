@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameBalanceConst
 {
     // game parameters
-    public static float Intensity = 10.0f;
+    public static float Intensity = 20.0f;
     public static float IntensityToRadiusRatio = 0.05f;
     //public static int SpreadDepth = 1;
     public static int SpreadSize = 2;
