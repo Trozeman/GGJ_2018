@@ -50,7 +50,7 @@ public class Station : Vertex {
         Owner = 0;
     }
 
-    public void Update(float dt)
+    public void Update(float dt, TransmitionEmitterPool emittersPool)
     {
         Decrease(GameBalanceConst.GlobalCensorAbsorption * dt);
 
@@ -67,7 +67,11 @@ public class Station : Vertex {
                     int curWidth = GameBalanceConst.SpreadSize;
                     foreach (var nearPoint in Neighbours)
                     {
-                        nearPoint.Increase(1, increase_value, 0.1f);
+                        GameObject emitter = emittersPool.InstantiateEmitter();
+                        emitter.transform.position = GetPosition();
+                        LeanTween.move(emitter, nearPoint.GetPosition(), 1.0f);
+                        GameObject.Destroy(emitter, 1.01f);
+                        nearPoint.Increase(1, increase_value, 1.0f);
                         curWidth -= 1;
                         if (curWidth == 0) break;
                     }
@@ -124,11 +128,11 @@ public class GameField {
         }
     }
 
-    public void Update(float dt)
+    public void Update(float dt, TransmitionEmitterPool emittersPool)
     {
         foreach(var point in Points)
         {           
-            point.Update(dt);
+            point.Update(dt, emittersPool);
         }
     }
 }

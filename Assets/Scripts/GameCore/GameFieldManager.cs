@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 
 public class GameFieldManager : MonoBehaviour
 {
+    public TransmitionEmitterPool EmittersPool;
     public SpreadNewsPerson[] SpreadNewsPersons;
     public GameObject Selection;
     public Vector3 Size;
@@ -62,7 +63,7 @@ public class GameFieldManager : MonoBehaviour
             Selection.SetActive(true);
         }
 
-        _gameField.Update(Time.deltaTime);
+        _gameField.Update(Time.deltaTime, EmittersPool);
 	}
 
     public GameField GetGameField() {
