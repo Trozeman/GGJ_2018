@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class GameFieldManager : MonoBehaviour
 {
+    public Image YellowProgress;
+    public Image BlueProgress;
+    public Text PerentText;
     public TransmitionEmitterPool EmittersPool;
     public SpreadNewsPerson[] SpreadNewsPersons;
     public GameObject Selection;
@@ -25,6 +29,7 @@ public class GameFieldManager : MonoBehaviour
         {
             person.gameObject.SetActive(false);
         }
+        _selectedPointIndex = Random.Range(0, _gameField.Points.Count);
 	}
 
     void Start()
@@ -65,7 +70,11 @@ public class GameFieldManager : MonoBehaviour
             Selection.SetActive(true);
         }
 
-        _gameField.Update(Time.deltaTime, EmittersPool);
+        float percent = _gameField.Update(Time.deltaTime, EmittersPool);
+        YellowProgress.fillAmount = percent;
+        BlueProgress.fillAmount = 1.0f - percent;
+
+        PerentText.text = (percent * 100) + "%";
 	}
 
     public GameField GetGameField() {

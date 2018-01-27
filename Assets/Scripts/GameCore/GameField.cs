@@ -143,11 +143,22 @@ public class GameField {
         }
     }
 
-    public void Update(float dt, TransmitionEmitterPool emittersPool)
+    public float Update(float dt, TransmitionEmitterPool emittersPool)
     {
+        float percentComplete = 0.0f;
+        float radiatedPoints = 0;
+
         foreach(var point in Points)
         {           
+            if (point.Radiation > 0.0f)
+            {
+                radiatedPoints += 1.0f;
+            }
             point.Update(dt, emittersPool);
         }
+
+        percentComplete = (radiatedPoints / (float)Points.Count) ;
+
+        return percentComplete;
     }
 }
