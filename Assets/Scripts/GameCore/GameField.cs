@@ -31,6 +31,11 @@ public class Station : Vertex {
         }
     }
 
+    public Vector3 GetPosition()
+    {
+        return new Vector3(x, y, 0.0f);
+    }
+
     public void AddNeighbour(Station point)
     {
         if (!Neighbours.Contains(point))
