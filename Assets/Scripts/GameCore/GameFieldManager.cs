@@ -54,4 +54,9 @@ public class GameFieldManager : MonoBehaviour
     public GameField GetGameField() {
         return _gameField;
     }
+
+    public void OnTramsitButtonClicked()
+    {
+        
+    }
 }
