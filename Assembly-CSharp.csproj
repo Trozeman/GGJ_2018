@@ -52,6 +52,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\CameraScaler.cs" />
     <Compile Include="Assets\Scripts\GameCore\Deleney\Hull.cs" />
     <Compile Include="Assets\Scripts\GameCore\Deleney\Set.cs" />
     <Compile Include="Assets\Scripts\GameCore\Deleney\Triad.cs" />
@@ -60,8 +61,8 @@
     <Compile Include="Assets\Scripts\GameCore\GameBalanceConst.cs" />
     <Compile Include="Assets\Scripts\GameCore\GameField.cs" />
     <Compile Include="Assets\Scripts\GameCore\GameFieldManager.cs" />
-    <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\ShowPoints.cs" />
+    <Compile Include="Assets\Scripts\StationView.cs" />
     <Reference Include="UnityEngine.UI">
       <HintPath>C:/Program Files/Unity2/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
     </Reference>
