@@ -11,5 +11,5 @@ public class GameBalanceConst
     public static float RadiationAbsorption = Intensity;
     public static float GlobalCensorAbsorption = 0.2f;
 
-    public static int InitalPointsCount = 4;
+    public static int InitalPointsCount = 100;
 }

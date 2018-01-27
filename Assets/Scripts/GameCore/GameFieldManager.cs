@@ -18,4 +18,8 @@ public class GameFieldManager : MonoBehaviour
 	void Update () {
 		
 	}
+
+    public GameField GetGameField() {
+        return _gameField;
+    }
 }
