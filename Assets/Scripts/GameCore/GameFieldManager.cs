@@ -14,6 +14,8 @@ public class GameFieldManager : MonoBehaviour
 
 	// Use this for initialization
 	void Awake () {
+
+        LeanTween.init(800);
         _gameField = new GameField();
         _gameField.Init(Size);
         _gameField.GenerateField(GameBalanceConst.InitalPointsCount);

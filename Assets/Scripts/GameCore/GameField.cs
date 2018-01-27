@@ -3,27 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using DelaunayTriangulator;
 
+public class Transmition
+{
+    public float increase_value;
+    public float increase_timer;
+}
+
 public class Station : Vertex {
 
     public List<Station> Neighbours;
     public int Owner;
     public float Radiation;
+    private List<Transmition> _transmitions;
 
-    public float increase_value;
-    public float increase_timer;
 
     public Station(float x, float y) : base(x,y)
     {
         Neighbours = new List<Station>();
-        increase_timer = -1.0f;
-        increase_value = 0.0f;
+        _transmitions = new List<Transmition>();
     }
 
     // add fake news to this point
     public void Increase(int player, float intensity, float timer)
     {
-        increase_timer = timer;
-        increase_value = intensity;
+        Debug.Log(intensity);
+        Transmition transmition = new Transmition();
+        transmition.increase_timer = timer;
+        transmition.increase_value = intensity;
+        _transmitions.Add(transmition);
     }
 
     public Vector3 GetPosition()
@@ -54,31 +61,39 @@ public class Station : Vertex {
     {
         Decrease(GameBalanceConst.GlobalCensorAbsorption * dt);
 
-        if (increase_timer>=0.0f)
+        List<Transmition> transmitions_to_delete = new List<Transmition>();
+        foreach (var transmition in _transmitions)
         {
-            increase_timer -= dt;
-            if (increase_timer <= 0.0f)
+            if (transmition.increase_timer >= 0.0f)
             {
-                increase_timer = -1;
-                Radiation += increase_value;
-                increase_value -= GameBalanceConst.RadiationAbsorption;
-                if (increase_value > 0)
-                {
-                    int curWidth = GameBalanceConst.SpreadSize;
-                    foreach (var nearPoint in Neighbours)
+                transmition.increase_timer -= dt;
+                if (transmition.increase_timer <= 0.0f)
+                {                   
+                    Radiation += transmition.increase_value;
+                    //transmition.increase_value -= GameBalanceConst.RadiationAbsorption;
+                    if (transmition.increase_value > 0 && emittersPool.transform.childCount < GameBalanceConst.MaximumTransitions)
                     {
-                        GameObject emitter = emittersPool.InstantiateEmitter();
-                        emitter.transform.position = GetPosition();
-                        LeanTween.move(emitter, nearPoint.GetPosition(), 1.0f);
-                        GameObject.Destroy(emitter, 1.01f);
-                        nearPoint.Increase(1, increase_value, 1.0f);
-                        curWidth -= 1;
-                        if (curWidth == 0) break;
+                        int curWidth = GameBalanceConst.SpreadSize;
+                        foreach (var nearPoint in Neighbours)
+                        {
+                            GameObject emitter = emittersPool.InstantiateEmitter();
+                            emitter.transform.position = GetPosition();
+                            LeanTween.move(emitter, nearPoint.GetPosition(), 1.0f);
+                            GameObject.Destroy(emitter, 1.01f);
+                            nearPoint.Increase(1, transmition.increase_value - GameBalanceConst.RadiationAbsorption, 1.0f);
+                            curWidth -= 1;
+                            if (curWidth == 0) break;
+                        }
                     }
+                    transmitions_to_delete.Add(transmition);
                 }
             }
         }
 
+        foreach(var deleteTransmition in transmitions_to_delete)
+        {
+            _transmitions.Remove(deleteTransmition);
+        }
     }
 
 }
