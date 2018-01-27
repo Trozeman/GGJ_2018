@@ -470,7 +470,7 @@ GameObject:
   - component: {fileID: 470787906}
   - component: {fileID: 470787905}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Hint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -733,7 +733,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: ACCEPT
 --- !u!222 &820593789
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -752,7 +752,7 @@ GameObject:
   - component: {fileID: 914945867}
   - component: {fileID: 914945866}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: ModalWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1605,8 +1605,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -86}
-  m_SizeDelta: {x: 143.18, y: 37.8}
+  m_AnchoredPosition: {x: 0, y: -83.757}
+  m_SizeDelta: {x: 190.92, y: 42.285}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1675181706
 MonoBehaviour:
@@ -1768,7 +1768,7 @@ GameObject:
   - component: {fileID: 1775066429}
   - component: {fileID: 1775066428}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: GameUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
