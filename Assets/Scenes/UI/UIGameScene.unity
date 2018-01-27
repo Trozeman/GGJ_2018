@@ -353,6 +353,56 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224316221600980882, guid: 784449981fcf7914a813f8db12639374,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 54.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 224316221600980882, guid: 784449981fcf7914a813f8db12639374,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 54.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 224690012605274256, guid: 784449981fcf7914a813f8db12639374,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 264.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224690012605274256, guid: 784449981fcf7914a813f8db12639374,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 53.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 224690012605274256, guid: 784449981fcf7914a813f8db12639374,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 149.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 224690012605274256, guid: 784449981fcf7914a813f8db12639374,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 53.788
+      objectReference: {fileID: 0}
+    - target: {fileID: 224795738522258434, guid: 784449981fcf7914a813f8db12639374,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 377.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 224795738522258434, guid: 784449981fcf7914a813f8db12639374,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 149.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 224795738522258434, guid: 784449981fcf7914a813f8db12639374,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 53.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 224795738522258434, guid: 784449981fcf7914a813f8db12639374,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 53.165
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 784449981fcf7914a813f8db12639374, type: 2}
   m_IsPrefabParent: 0
