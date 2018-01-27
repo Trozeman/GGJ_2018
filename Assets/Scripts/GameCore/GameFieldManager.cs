@@ -11,6 +11,7 @@ public class GameFieldManager : MonoBehaviour
     public Text PerentText;
     public TransmitionEmitterPool EmittersPool;
     public SpreadNewsPerson[] SpreadNewsPersons;
+    public SpreadNewsPerson[] SpammedPersons;
     public GameObject Selection;
     public Vector3 Size;
     private GameField _gameField;
@@ -26,6 +27,11 @@ public class GameFieldManager : MonoBehaviour
         _selectedPointIndex = -1;
 
         foreach(var person in SpreadNewsPersons)
+        {
+            person.gameObject.SetActive(false);
+        }
+
+        foreach (var person in SpammedPersons)
         {
             person.gameObject.SetActive(false);
         }
@@ -70,7 +76,7 @@ public class GameFieldManager : MonoBehaviour
             Selection.SetActive(true);
         }
 
-        float percent = _gameField.Update(Time.deltaTime, EmittersPool);
+        float percent = _gameField.Update(Time.deltaTime, EmittersPool, SpammedPersons);
         YellowProgress.fillAmount = percent;
         BlueProgress.fillAmount = 1.0f - percent;
 

@@ -26,7 +26,6 @@ public class Station : Vertex {
     // add fake news to this point
     public void Increase(int player, float intensity, float timer)
     {
-        Debug.Log(intensity);
         Transmition transmition = new Transmition();
         transmition.increase_timer = timer;
         transmition.increase_value = intensity;
@@ -57,7 +56,7 @@ public class Station : Vertex {
         Owner = 0;
     }
 
-    public void Update(float dt, TransmitionEmitterPool emittersPool)
+    public void Update(float dt, TransmitionEmitterPool emittersPool, SpreadNewsPerson[] spammedPersons)
     {
         Decrease(GameBalanceConst.GlobalCensorAbsorption * dt);
 
@@ -70,19 +69,30 @@ public class Station : Vertex {
                 if (transmition.increase_timer <= 0.0f)
                 {                   
                     Radiation += transmition.increase_value;
-                    //transmition.increase_value -= GameBalanceConst.RadiationAbsorption;
-                    if (transmition.increase_value > 0 && emittersPool.transform.childCount < GameBalanceConst.MaximumTransitions)
+
+                    if (Radiation > GameBalanceConst.MaxIntensityToDropDown)
                     {
-                        int curWidth = GameBalanceConst.SpreadSize;
-                        foreach (var nearPoint in Neighbours)
+                        Radiation = 0;
+                        SpreadNewsPerson person = GameObject.Instantiate(spammedPersons[Random.Range(0, spammedPersons.Length)]);
+                        person.ShowSpreadingNews(GetPosition());
+                        GameObject.Destroy(person, 2.0f);
+                    }
+                    else
+                    {
+                        //transmition.increase_value -= GameBalanceConst.RadiationAbsorption;
+                        if (transmition.increase_value > 0 && emittersPool.transform.childCount < GameBalanceConst.MaximumTransitions)
                         {
-                            GameObject emitter = emittersPool.InstantiateEmitter();
-                            emitter.transform.position = GetPosition();
-                            LeanTween.move(emitter, nearPoint.GetPosition(), 1.0f);
-                            GameObject.Destroy(emitter, 1.01f);
-                            nearPoint.Increase(1, transmition.increase_value - GameBalanceConst.RadiationAbsorption, 1.0f);
-                            curWidth -= 1;
-                            if (curWidth == 0) break;
+                            int curWidth = GameBalanceConst.SpreadSize;
+                            foreach (var nearPoint in Neighbours)
+                            {
+                                GameObject emitter = emittersPool.InstantiateEmitter();
+                                emitter.transform.position = GetPosition();
+                                LeanTween.move(emitter, nearPoint.GetPosition(), 1.0f);
+                                GameObject.Destroy(emitter, 1.01f);
+                                nearPoint.Increase(1, transmition.increase_value - GameBalanceConst.RadiationAbsorption, 1.0f);
+                                curWidth -= 1;
+                                if (curWidth == 0) break;
+                            }
                         }
                     }
                     transmitions_to_delete.Add(transmition);
@@ -143,7 +153,7 @@ public class GameField {
         }
     }
 
-    public float Update(float dt, TransmitionEmitterPool emittersPool)
+    public float Update(float dt, TransmitionEmitterPool emittersPool, SpreadNewsPerson[] spammedPersons)
     {
         float percentComplete = 0.0f;
         float radiatedPoints = 0;
@@ -154,7 +164,7 @@ public class GameField {
             {
                 radiatedPoints += 1.0f;
             }
-            point.Update(dt, emittersPool);
+            point.Update(dt, emittersPool, spammedPersons);
         }
 
         percentComplete = (radiatedPoints / (float)Points.Count) ;
