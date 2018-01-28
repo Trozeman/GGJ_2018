@@ -113,6 +113,48 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &15724445
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4776442845893832, guid: 3f4c143893cdb8f4eb794ff43e8a3647, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 1276.7833
+      objectReference: {fileID: 0}
+    - target: {fileID: 4776442845893832, guid: 3f4c143893cdb8f4eb794ff43e8a3647, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 531.4516
+      objectReference: {fileID: 0}
+    - target: {fileID: 4776442845893832, guid: 3f4c143893cdb8f4eb794ff43e8a3647, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 24.120638
+      objectReference: {fileID: 0}
+    - target: {fileID: 4776442845893832, guid: 3f4c143893cdb8f4eb794ff43e8a3647, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4776442845893832, guid: 3f4c143893cdb8f4eb794ff43e8a3647, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4776442845893832, guid: 3f4c143893cdb8f4eb794ff43e8a3647, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4776442845893832, guid: 3f4c143893cdb8f4eb794ff43e8a3647, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4776442845893832, guid: 3f4c143893cdb8f4eb794ff43e8a3647, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 3f4c143893cdb8f4eb794ff43e8a3647, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &117556618
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,7 +523,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 764493625}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1551537552}
+        m_MethodName: Change
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: -1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &764493625
@@ -778,6 +831,12 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1204771550}
+--- !u!114 &1551537552 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114132083336629936, guid: 3f4c143893cdb8f4eb794ff43e8a3647,
+    type: 2}
+  m_PrefabInternal: {fileID: 15724445}
+  m_Script: {fileID: 11500000, guid: 6b150a4a059d4254b92192fdb0f1f16c, type: 3}
 --- !u!1 &1669571998
 GameObject:
   m_ObjectHideFlags: 0
@@ -856,7 +915,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1669572001}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1551537552}
+        m_MethodName: Change
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 1
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1669572001
