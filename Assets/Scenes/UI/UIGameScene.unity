@@ -214,6 +214,16 @@ Prefab:
       propertyPath: m_Name
       value: GameUIPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 114654990476357626, guid: 6015cde1975c1d44fa9b2d72d7209a86,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1375804651}
+    - target: {fileID: 114654990476357626, guid: 6015cde1975c1d44fa9b2d72d7209a86,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AudioPlayRandom
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6015cde1975c1d44fa9b2d72d7209a86, type: 2}
   m_IsPrefabParent: 0
@@ -552,6 +562,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1224524535 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1505515192097930, guid: 6015cde1975c1d44fa9b2d72d7209a86,
+    type: 2}
+  m_PrefabInternal: {fileID: 18044037}
+--- !u!114 &1224524540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1224524535}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 566fbd4424ee1b14ea6e03f659a06a74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Sound: {fileID: 8300000, guid: 94cb23be9c68d3e4dbe86ce3e2f487ac, type: 3}
 --- !u!1 &1375804650
 GameObject:
   m_ObjectHideFlags: 0
@@ -812,6 +839,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114420836597856152, guid: d9f52d5227a65ee47870e47847676896,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 224997675599589038, guid: d9f52d5227a65ee47870e47847676896,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -905,6 +937,26 @@ Prefab:
     - target: {fileID: 1356287686681858, guid: d9f52d5227a65ee47870e47847676896, type: 2}
       propertyPath: m_Name
       value: ModalWindow
+      objectReference: {fileID: 0}
+    - target: {fileID: 114420836597856152, guid: d9f52d5227a65ee47870e47847676896,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114420836597856152, guid: d9f52d5227a65ee47870e47847676896,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114420836597856152, guid: d9f52d5227a65ee47870e47847676896,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11500000, guid: 470308300d355c544b7fdf751f55ab3a,
+        type: 3}
+    - target: {fileID: 1356287686681858, guid: d9f52d5227a65ee47870e47847676896, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d9f52d5227a65ee47870e47847676896, type: 2}
