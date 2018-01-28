@@ -11,12 +11,8 @@ public class GameBalanceConst
     //public static int SpreadDepth = 1;
     public static int SpreadSize = 2;
     public static float RadiationAbsorption = 2;
-    public static float GlobalCensorAbsorption = 3.70f;
-<<<<<<< Updated upstream
+    public static float GlobalCensorAbsorption = 3.7f;
     public static int InitalPointsCount = 50;
-=======
-    public static int InitalPointsCount = 100;
->>>>>>> Stashed changes
-    public static float AutoTransmitButtonInterval = 0.6f;
+    public static float AutoTransmitButtonInterval = 2.0f;
     public static float MaxIntensityToDropDown = 150;
 }

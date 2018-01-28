@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 
 public class GameFieldManager : MonoBehaviour
 {
+    public Text NewsCounterText;
+    public GameObject WinWindow;
     public Image YellowProgress;
     public Image BlueProgress;
     public Text PerentText;
@@ -16,6 +18,7 @@ public class GameFieldManager : MonoBehaviour
     public Vector3 Size;
     private GameField _gameField;
     private int _selectedPointIndex;
+    public int NewsCounter;
 
 	// Use this for initialization
 	void Awake () {
@@ -36,6 +39,7 @@ public class GameFieldManager : MonoBehaviour
             person.gameObject.SetActive(false);
         }
         _selectedPointIndex = Random.Range(0, _gameField.Points.Count);
+        NewsCounter = 10;
 	}
 
     void Start()
@@ -84,7 +88,14 @@ public class GameFieldManager : MonoBehaviour
         YellowProgress.fillAmount = percent;
         BlueProgress.fillAmount = 1.0f - percent;
 
+        if (percent >= 1.0f)
+        {
+            Time.timeScale = 0.0f;
+            WinWindow.gameObject.SetActive(true);
+        }
+
         PerentText.text = (percent * 100) + "%";
+        NewsCounterText.text = NewsCounter.ToString();
 	}
 
     public GameField GetGameField() {
@@ -93,12 +104,13 @@ public class GameFieldManager : MonoBehaviour
 
     public void OnTramsitButtonClicked()
     {
-        if (_selectedPointIndex >= 0)
+        if (_selectedPointIndex >= 0 && NewsCounter > 0)
         {
             Station station = _gameField.Points[_selectedPointIndex];
             station.Increase(1, GameBalanceConst.Intensity, 0.0f);
             SpreadNewsPerson person = SpreadNewsPersons[Random.Range(0, SpreadNewsPersons.Length)];
             person.ShowSpreadingNews(station.GetPosition());
+            NewsCounter--;
         }
     }
 }

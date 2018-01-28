@@ -2,18 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpreadNewsPerson : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
+public class SpreadNewsPerson : MonoBehaviour
+{
     public void ShowSpreadingNews(Vector3 pos)
     {
         transform.position = pos;
