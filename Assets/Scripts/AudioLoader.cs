@@ -9,16 +9,17 @@ public class AudioLoader : MonoBehaviour
 	private AudioSource s;
 	private int r ;
 	
-	private void Awake()
+
+	public void AudioPlayRandom()
 	{
-		r = Random.Range(0, 3);
+		r = Random.Range(0, _Audio.Length -1);
 		DontDestroyOnLoad(gameObject);
 
 		s = GetComponent<AudioSource>();
 		s.clip = _Audio[r];
 		s.Play();
 	}
-
+	
 	// Use this for initialization
 	void Start () {
 		
