@@ -88,7 +88,7 @@ public class GameFieldManager : MonoBehaviour
         YellowProgress.fillAmount = percent;
         BlueProgress.fillAmount = 1.0f - percent;
 
-        if (percent >= 1.0f)
+        if (percent >= 0.9f)
         {
             Time.timeScale = 0.0f;
             WinWindow.gameObject.SetActive(true);
