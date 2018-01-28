@@ -53,7 +53,11 @@ public class GameFieldManager : MonoBehaviour
 #if UNITY_STANDALONE
         isOverUI = EventSystem.current.IsPointerOverGameObject();
 #endif
-        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
+        if (Input.touchCount > 0)
+        {
+            isOverUI = EventSystem.current.IsPointerOverGameObject(0);
+        }
+        if (Input.GetMouseButtonDown(0) && !isOverUI)
         {
             _selectedPointIndex = -1;
             int curentIndex = 0;

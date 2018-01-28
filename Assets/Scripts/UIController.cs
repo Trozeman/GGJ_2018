@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour {
 
+    public GameObject HelpWindow;
     public Text PercentText;
     public Image TransmitProgress;
     public Button TransmitButton;
@@ -30,5 +31,11 @@ public class UIController : MonoBehaviour {
                 TransmitButton.OnSubmit(new UnityEngine.EventSystems.BaseEventData(UnityEngine.EventSystems.EventSystem.current));
             }
         }
+    }
+
+    public void OnHelpButtonPressed()
+    {
+        Time.timeScale = 0;
+        HelpWindow.gameObject.SetActive(true);
     }
 }
