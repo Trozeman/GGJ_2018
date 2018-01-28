@@ -79,17 +79,17 @@ public class Station : Vertex {
                     }
                     else
                     {
-                        //transmition.increase_value -= GameBalanceConst.RadiationAbsorption;
                         if (transmition.increase_value > 0 && emittersPool.transform.childCount < GameBalanceConst.MaximumTransitions)
                         {
                             int curWidth = GameBalanceConst.SpreadSize;
                             foreach (var nearPoint in Neighbours)
                             {
+                                float timeToflight =  Random.Range(0.8f, 1.75f);
                                 GameObject emitter = emittersPool.InstantiateEmitter();
                                 emitter.transform.position = GetPosition();
-                                LeanTween.move(emitter, nearPoint.GetPosition(), 1.0f);
-                                GameObject.Destroy(emitter, 1.01f);
-                                nearPoint.Increase(1, transmition.increase_value - GameBalanceConst.RadiationAbsorption, 1.0f);
+                                LeanTween.move(emitter, nearPoint.GetPosition(),timeToflight);
+                                GameObject.Destroy(emitter, timeToflight + 0.01f);
+                                nearPoint.Increase(1, transmition.increase_value - GameBalanceConst.RadiationAbsorption, timeToflight);
                                 curWidth -= 1;
                                 if (curWidth == 0) break;
                             }

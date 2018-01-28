@@ -14,5 +14,5 @@ public class GameBalanceConst
     public static float GlobalCensorAbsorption = 3.70f;
     public static int InitalPointsCount = 50;
     public static float AutoTransmitButtonInterval = 0.6f;
-    public static float MaxIntensityToDropDown = 150;
+    public static float MaxIntensityToDropDown = 250;
 }
