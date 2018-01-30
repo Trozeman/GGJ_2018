@@ -54,13 +54,15 @@ public class GameFieldManager : MonoBehaviour
         Station stationClicked = null;
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         bool isOverUI = false;
-#if UNITY_STANDALONE
+#if UNITY_STANDALONE || UNITY_WEBGL || UNITY_EDITOR
         isOverUI = EventSystem.current.IsPointerOverGameObject();
-#endif
+#else
+
         if (Input.touchCount > 0)
         {
             isOverUI = EventSystem.current.IsPointerOverGameObject(0);
         }
+#endif
         if (Input.GetMouseButtonDown(0) && !isOverUI)
         {
             _selectedPointIndex = -1;
