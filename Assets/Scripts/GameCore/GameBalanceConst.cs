@@ -13,6 +13,6 @@ public class GameBalanceConst
     public static float RadiationAbsorption = 2;
     public static float GlobalCensorAbsorption = 3.7f;
     public static int InitalPointsCount = 50;
-    public static float AutoTransmitButtonInterval = 2.0f;
+    public static float AutoTransmitButtonInterval = 1.0f;
     public static float MaxIntensityToDropDown = 150;
 }
