@@ -84,7 +84,7 @@ public class Station : Vertex {
                             int curWidth = GameBalanceConst.SpreadSize;
                             foreach (var nearPoint in Neighbours)
                             {
-                                float timeToflight = GameBalanceConst.Asynchronous ? Random.Range(0.8f / GameBalanceConst.TransmissionsSpeed, 1.75f / GameBalanceConst.TransmissionsSpeed) : GameBalanceConst.TransmissionsSpeed;
+                                float timeToflight = GameBalanceConst.Asynchronous ? Random.Range(0.8f * GameBalanceConst.TransmissionsTime, 1.75f * GameBalanceConst.TransmissionsTime) : GameBalanceConst.TransmissionsTime;
                                 GameObject emitter = emittersPool.InstantiateEmitter();
                                 emitter.transform.position = GetPosition();
                                 LeanTween.move(emitter, nearPoint.GetPosition(),timeToflight);

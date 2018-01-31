@@ -16,5 +16,5 @@ public class GameBalanceConst
     public static int InitalPointsCount = 50;
     public static float AutoTransmitButtonInterval = 0.88f;
     public static float MaxIntensityToDropDown = 150;
-    public static float TransmissionsSpeed = AutoTransmitButtonInterval;
+    public static float TransmissionsTime = AutoTransmitButtonInterval;
 }
